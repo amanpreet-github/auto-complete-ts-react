@@ -1,0 +1,28 @@
+html {
+  --white: #ffffff;
+  --black: #000000;
+  --grey-90: #212529;
+  --grey-80: #343A40;
+  --grey-70: #495057;
+  --grey-60: #6C757D;
+  --grey-50: #ADB5BD;
+  --grey-40: #CED4DA;
+  --grey-30: #DEE2E6;
+  --grey-20: #E9ECEF;
+  --grey-10: #F8F9FA;
+}
+
+.App {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.selected-item {
+  margin-top: 2rem;
+  text-align: center;
+}
