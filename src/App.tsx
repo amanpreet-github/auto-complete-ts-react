@@ -86,9 +86,8 @@ function App() {
           enableMatchingTextHighLighting={true}
           highlightMatchingText={highlightMatchingText}
           renderSuggestion={(props) => <CountrySuggestions {...props} />}
-          selectUsingKeyboard={false}
+          selectUsingKeyboard={true}
           onSelect={handleOnSelect}
-          autoFocus={false}
           // We can also extend it with feature such as showMoreButton or showMoreOnScroll (using intersection Observer)
           // We can add keyboard events such as navigate on list items using arrow keys etc.
         />

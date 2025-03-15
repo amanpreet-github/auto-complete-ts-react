@@ -1,6 +1,10 @@
 import React from "react";
 
-const Button: React.FC<React.ComponentProps<"button">> = ({
+interface ButtonProps {
+    children: React.ReactNode;
+}
+
+const Button: React.FC<React.ComponentProps<"button"> & ButtonProps> = ({
     className = "",
     children,
     type = 'button',

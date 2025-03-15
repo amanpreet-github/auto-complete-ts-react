@@ -135,7 +135,7 @@ const AutoComplete: React.FC<AutoCompleteProps> = ({
     if (val.length < minInputLength) skipFetch.current = true;
     if (val?.toLowerCase() !== debounceValue) {
       setQuery(val);
-      // onSelect(null);
+      onSelect(null);
       if (!showDropDown) setShowDropDown(true);
     }
     if (!val && showDropDown) {
@@ -162,7 +162,7 @@ const AutoComplete: React.FC<AutoCompleteProps> = ({
     dispatch({ payload: [], type: PromiseStates.FULFILLED as TPromiseState });
     setShowDropDown(false);
     inputRef.current?.focus();
-    // onSelect(null);
+    onSelect(null);
   };
 
   return (
@@ -171,7 +171,7 @@ const AutoComplete: React.FC<AutoCompleteProps> = ({
       <div className="autocomplete__input">
         <Input
           onChange={handleOnChange}
-          onFocus={() => debounceValue && setShowDropDown(true)}
+          onClick={() => debounceValue && setShowDropDown(true)}
           className="autocomplete__input__field"
           type="text"
           value={query}
@@ -197,9 +197,9 @@ const AutoComplete: React.FC<AutoCompleteProps> = ({
       {/* Renders the suggestions list */}
       {!!showDropDown && !!debounceValue.length ? (
         <SuggestionsDropdown
-          // query={query}
+          query={query}
           handleSuggestionSelect={handleSuggestionSelect}
-          // isLoading={isLoading}
+          isLoading={isLoading}
           suggestions={suggestions}
           renderSuggestion={renderSuggestion}
           height={height}

@@ -1,13 +1,15 @@
 import React, {
-  // ChangeEvent,
-  // FocusEvent,
+  ChangeEvent,
+  FocusEvent,
   InputHTMLAttributes,
 } from "react";
 
-const Input = React.forwardRef<
-  HTMLInputElement,
-  InputHTMLAttributes<HTMLInputElement>
->(
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
+}
+
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (
     {
       type = "text",

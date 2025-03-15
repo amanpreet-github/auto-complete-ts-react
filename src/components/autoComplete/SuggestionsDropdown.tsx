@@ -7,8 +7,8 @@ type TSuggestionsDropdownProps = Pick<
 >;
 
 interface SuggestionsDropdownProps<T> extends TSuggestionsDropdownProps {
-  // isLoading?: boolean;
-  // query?: string;
+  isLoading?: boolean;
+  query?: string;
   suggestions: T[];
   handleSuggestionSelect: (value: string, data: T) => void;
   children?: React.ReactNode;
@@ -16,6 +16,8 @@ interface SuggestionsDropdownProps<T> extends TSuggestionsDropdownProps {
 
 const SuggestionsDropdown = <T,>({
   height,
+  isLoading = false,
+  query,
   suggestions,
   renderSuggestion,
   handleSuggestionSelect,
@@ -24,9 +26,12 @@ const SuggestionsDropdown = <T,>({
   return (
     <div className="autocomplete__list-wrapper" style={{ maxHeight: height }}>
       {children}
-      {!!suggestions.length &&
+      {
         <ul className="autocomplete__list">
-            {suggestions.map((item: any, i: number) => {
+          {query &&
+            !!suggestions.length &&
+            !isLoading &&
+            suggestions.map((item: any) => {
               return (
                 <li key={item.id} className={`autocomplete__list__item`}>
                   {renderSuggestion
@@ -38,8 +43,7 @@ const SuggestionsDropdown = <T,>({
                 </li>
               );
             })}
-          </ul>
-          
+        </ul>
       }
     </div>
   );
