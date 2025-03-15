@@ -167,7 +167,7 @@ const AutoComplete: React.FC<AutoCompleteProps> = ({
 
   return (
     <div className="autocomplete" ref={autoCompleteRef} style={{ width }}>
-      <h2 className="autocomplete__title">AutoComplete</h2>
+      <h2 className="autocomplete__title">Auto Complete</h2>
       <div className="autocomplete__input">
         <Input
           onChange={handleOnChange}
